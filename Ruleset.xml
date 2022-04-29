@@ -17,10 +17,6 @@
 	<rule ref="category/apex/design.xml/NcssMethodCount" />
     <!-- PERFORMANCE -->
 	<rule ref="category/apex/performance.xml/AvoidDebugStatements" />
-	<rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" />
-	<rule ref="category/apex/performance.xml/AvoidSoqlInLoops" />
-	<rule ref="category/apex/performance.xml/AvoidSoslInLoops" />
-	<rule ref="category/apex/performance.xml/EagerlyLoadedDescribeSObjectResult" />
 	<rule ref="category/apex/performance.xml/OperationWithLimitsInLoop" />
     <!-- BEST PRACTICES -->
     <rule ref="category/apex/bestpractices.xml/ApexAssertionsShouldIncludeMessage" />
