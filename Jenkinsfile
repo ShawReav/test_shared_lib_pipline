@@ -17,6 +17,7 @@ node {
     def DEPLOYMENT_TYPE=env.DEPLOYMENT_TYPE // Incremental Deployment = DELTA ; Full Deployment = FULL
     def SF_SOURCE_COMMIT_ID=env.SOURCE_COMMIT
     def SF_TARGET_COMMIT_ID=env.TARGET_COMMIT
+    def APEX_PMD=env.APEX_PMD
     
     //Defining SFDX took kit path against toolbelt
     def toolbelt = tool 'toolbelt'
