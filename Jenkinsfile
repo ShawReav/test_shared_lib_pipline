@@ -111,11 +111,11 @@ node {
 	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
             			}
             		}
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'PMD_report.html', reportName: 'HTML Report', reportTitles: 'Coverage Report'])
 		    	if (rc != 0) 
 				{
 				error 'PMD Validation Failed.'
 		    		}
-			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'PMD_report.html', reportName: 'HTML Report', reportTitles: 'Coverage Report'])
         	}
 
 		// -------------------------------------------------------------------------
