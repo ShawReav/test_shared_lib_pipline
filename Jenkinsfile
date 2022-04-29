@@ -89,6 +89,8 @@ node {
 		// -------------------------------------------------------------------------
 
 		stage('ApexPMD_Validation') {
+				if (APEX_PMD == 'True')
+				{
       			if (DEPLOYMENT_TYPE == 'DELTA')
             		{
             			if (isUnix()) 
@@ -116,6 +118,11 @@ node {
 				{
 				error 'PMD Validation Failed.'
 		    		}
+				}
+				else
+				{
+				echo 'Skipping Apex PMD check'
+				}
         	}
 
 		// -------------------------------------------------------------------------
