@@ -83,6 +83,39 @@ node {
               			echo "Deployment is for All Components from Repository"
           		}
 		}
+		
+		// -------------------------------------------------------------------------
+		// ApexPMD Execution.
+		// -------------------------------------------------------------------------
+
+		stage('ApexPMD_Validation') {
+      			if (DEPLOYMENT_TYPE == 'DELTA')
+            		{
+            			if (isUnix()) 
+				{
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+            			}
+				else	
+				{
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+            			}
+            		}
+            		else
+            		{
+            			if (isUnix()) 
+				{
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+            			}
+				else	
+				{
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+            			}
+            		}
+		    	if (rc != 0) 
+				{
+				error 'PMD Validation Failed.'
+		    		}
+        	}
 
 		// -------------------------------------------------------------------------
 		// Validating Stage.
