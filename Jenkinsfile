@@ -93,22 +93,22 @@ node {
             		{
             			if (isUnix()) 
 				{
-                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
             			}
 				else	
 				{
-	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
             			}
             		}
             		else
             		{
             			if (isUnix()) 
 				{
-                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
             			}
 				else	
 				{
-	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o PMD_report.html -f html"
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
             			}
             		}
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'PMD_report.html', reportName: 'HTML Report', reportTitles: 'Coverage Report'])
