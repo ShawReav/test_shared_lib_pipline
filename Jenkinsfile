@@ -115,7 +115,7 @@ node {
 				{
 				error 'PMD Validation Failed.'
 		    		}
-			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: ‘coverage’, reportFiles: ‘PMD_report.html’, reportName: ‘HTML Report’, reportTitles: ‘Coverage Report’])  
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'PMD_report.html', reportName: 'HTML Report', reportTitles: 'Coverage Report'])
         	}
 
 		// -------------------------------------------------------------------------
