@@ -17,6 +17,7 @@ node {
     def DEPLOYMENT_TYPE=env.DEPLOYMENT_TYPE // Incremental Deployment = DELTA ; Full Deployment = FULL
     def SF_SOURCE_COMMIT_ID=env.SOURCE_COMMIT
     def SF_TARGET_COMMIT_ID=env.TARGET_COMMIT
+    def APEX_PMD=env.APEX_PMD
     
     //Defining SFDX took kit path against toolbelt
     def toolbelt = tool 'toolbelt'
@@ -83,6 +84,47 @@ node {
               			echo "Deployment is for All Components from Repository"
           		}
 		}
+		
+		// -------------------------------------------------------------------------
+		// ApexPMD Execution.
+		// -------------------------------------------------------------------------
+
+		stage('ApexPMD_Validation') {
+				if (APEX_PMD == 'True')
+				{
+      			if (DEPLOYMENT_TYPE == 'DELTA')
+            		{
+            			if (isUnix()) 
+				{
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
+            			}
+				else	
+				{
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${SF_DELTA_FOLDER}/${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
+            			}
+            		}
+            		else
+            		{
+            			if (isUnix()) 
+				{
+                			rc = sh "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
+            			}
+				else	
+				{
+	         			rc = command "${toolbelt}sfdx sfpowerkit:source:pmd -d ${DEPLOYDIR} -r Ruleset.xml -o coverage/PMD_report.html -f html"
+            			}
+            		}
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'PMD_report.html', reportName: 'HTML Report', reportTitles: 'Coverage Report'])
+		    	if (rc != 0) 
+				{
+				error 'PMD Validation Failed.'
+		    		}
+				}
+				else
+				{
+				echo 'Skipping Apex PMD check'
+				}
+        	}
 
 		// -------------------------------------------------------------------------
 		// Validating Stage.
@@ -150,7 +192,7 @@ node {
 				error 'Component Validation Failed.'
 		    		}
         	}
-		    
+		  
 		// -------------------------------------------------------------------------
 		// Deploy metadata and execute unit tests.
 		// -------------------------------------------------------------------------
