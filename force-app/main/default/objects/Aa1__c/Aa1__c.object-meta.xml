@@ -148,21 +148,18 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
-    <enableReports>true</enableReports>
+    <enableReports>false</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Anime1</label>
+    <label>Aa1</label>
     <nameField>
-        <label>Anime1 Name</label>
+        <label>Aa1 Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Anime1</pluralLabel>
+    <pluralLabel>Aa1</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
-//My comments
-
-
