@@ -6,13 +6,13 @@ node {
     // Defining Org Variables
     // -------------------------------------------------------------------------
 	
-    def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
-    def SF_USERNAME=env.SF_USERNAME
+    
+    
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='force-app'
     def SF_DELTA_FOLDER='DELTA_PKG'
     def TEST_LEVEL= env.TEST_LEVEL
-    def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
+    
 	
     def DEPLOYMENT_TYPE=env.DEPLOYMENT_TYPE // Incremental Deployment = DELTA ; Full Deployment = FULL
     def SF_SOURCE_COMMIT_ID=env.SOURCE_COMMIT
