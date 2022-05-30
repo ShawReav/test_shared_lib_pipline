@@ -69,6 +69,9 @@ node {
       			pkgValidation
         	}
 		    
+		 stage('Package_Deployment') {
+      			pkgDeployment
+        	}
 		// -------------------------------------------------------------------------
 		// Deploy metadata and execute unit tests.
 		// -------------------------------------------------------------------------
