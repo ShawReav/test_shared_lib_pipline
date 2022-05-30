@@ -49,7 +49,7 @@ node {
 
 		stage('Authorize to Salesforce') {
 			
-				authorize 'SF_INSTANCE_URL,SF_CONSUMER_KEY,SF_USERNAME'
+				authorize
 			
 		}
 		 
