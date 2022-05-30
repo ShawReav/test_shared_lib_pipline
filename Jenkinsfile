@@ -19,7 +19,7 @@ node {
     def SF_TARGET_COMMIT_ID=env.TARGET_COMMIT
     
     //Defining SFDX took kit path against toolbelt
-    def toolbelt = tool 'toolbelt'
+    
 
 
     // -------------------------------------------------------------------------
