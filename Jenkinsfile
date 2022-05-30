@@ -49,7 +49,7 @@ node {
 
 		stage('Authorize to Salesforce') {
 			
-				authorize(toolbelt,SF_CONSUMER_KEY,"SF_INSTANCE_URL","SF_USERNAME")
+				authorize(toolbelt,SF_CONSUMER_KEY,SF_INSTANCE_URL,SF_USERNAME)
 			
 		}
 		 
