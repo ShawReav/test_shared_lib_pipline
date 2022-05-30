@@ -53,7 +53,7 @@ node {
 		    }
 		stage('Authorize to Salesforce') {
 			
-				authorize
+				authorize()
 			
 		}
 		 
