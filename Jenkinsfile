@@ -45,7 +45,7 @@ node {
 		// -------------------------------------------------------------------------
 
 		stage('Authorize to Salesforce') {
-			steps(){
+			steps{
 				authorize()
 			}
 		}
