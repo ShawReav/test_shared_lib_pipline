@@ -6,7 +6,10 @@ node {
     // Defining Org Variables
     // -------------------------------------------------------------------------
 	
-    
+   def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
+   def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
+   def SF_USERNAME=env.SF_USERNAME
+   def toolbelt = tool 'toolbelt'
     
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='force-app'
