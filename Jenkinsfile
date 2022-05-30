@@ -46,7 +46,11 @@ node {
 		// Authenticate to Salesforce using the server key.
 		// Installing SF Powerkit Plugin
 		// -------------------------------------------------------------------------
-
+		
+		stage('Update powerkit'){
+			
+			powerkit
+		    }
 		stage('Authorize to Salesforce') {
 			
 				authorize
